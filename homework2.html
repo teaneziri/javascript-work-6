@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//Homework 2: Car control system
+// Goal: User interacts with simple API while the class hides details.
+// Requirements:
+//  Create class Car:
+// private fields: #fuel, #engineOn
+// methods:
+// start()
+// stop()
+// drive()
+// Driving and engine logic must be hidden from user.
+
+class Car{
+    #fuel;
+    #engineOn;
+
+    constructor(initialFuel=0){
+        this.#fuel=initialFuel;
+        this.#engineOn=false;  //by default
+        console.log('Initial fuel level',this.#fuel)
+    }
+
+    start(){
+        if(this.#fuel<=0){
+            console.log("Cannot start, fuel tank is empty.")
+            return
+        }
+
+        if(this.#engineOn){
+            console.log("Car is already running.")
+            return
+        }
+
+        this.#engineOn=true;
+        console.log("Engine started.")
+    }
+
+    stop(){
+        if(!this.#engineOn){
+            console.log("Car is already stopped.")
+            return
+        }
+
+        this.#engineOn=false;
+        console.log("Engine stopped successfully.")
+    }
+
+    drive(){
+        if(!this.#engineOn){
+            console.log("ERROR: Engine is off.Cannot drive.")
+            return
+        }
+
+        if(this.#fuel<=0){
+            console.log("ERROR: Fuel tank is empty.Cannot drive.")
+            return
+        }
+
+        console.log('Driving forward')
+    }
+
+}
+
+const myCar=new Car(2)
+//myCar.start()
+myCar.stop()
+
+myCar.start()
+myCar.stop()
+
+myCar.stop()
+
+//test3
+myCar.drive()
+myCar.start()
+myCar.drive()
+
+
+
+    </script>
+</body>
+</html>
