@@ -35,7 +35,7 @@
                 console.log(`Deposited amount is ${amount}€.New balance is ${this.#balance}€`)
             }
 
-            
+
             withdraw(amount){
                 if(amount<=0){
                     console.log("ERROR:Withdrawal amount must be positive.")
@@ -52,6 +52,11 @@
             }
 
 
+            getBalance(){
+                return this.#balance
+            }
+
+
         }
 
 
@@ -59,6 +64,7 @@
         const myAccount=new BankAccount(0)
         myAccount.deposit(50)
         myAccount.withdraw(32)
+        console.log(`My account deposit is : `,myAccount.getBalance(),'€')
 
 
     </script>
