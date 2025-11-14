@@ -26,12 +26,13 @@
             }
 
             deposit(amount){
-                if(amount>0){
-                    this.#balance+=amount;
-                    console.log(`Deposited ${amount}.New balance ${this.#balance}`)
-                }else{
-                    console.log("Error:Deposit amount must be positive")
+                if(amount<=0){
+                    console.log("ERROR: Deposit amount must be positive.")
+                    return;
                 }
+
+                this.#balance += amount;
+                console.log(`Deposited amount is ${amount}€.New balance is ${this.#balance}€`)
             }
 
 
