@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Homework 3: Notifications
+// Goal: Multiple classes with the same interface.
+// Requirements:
+// Class Notification
+// Subclasses:
+// EmailNotification
+// SMSNotification
+// PushNotification
+// Each overrides send(message)
+
+class Notification{
+    send(message){
+        console.log(`[Generic]: ${message}`)
+    }
+}
+
+class EmailNotification extends Notification{
+    send(message){
+        console.log(`[EMAIL]: ${message}`)
+    }
+}
+
+class SMSNotification extends Notification{
+    send(message){
+        console.log(`[SMS]:  ${message}`)
+    }
+}
+
+class PushNotificaion extends Notification{
+    send(message){
+        console.log(`[PUSH]: ${message}`)
+    }
+}
+
+const email=new EmailNotification()
+const sms=new SMSNotification()
+const push=new PushNotificaion()
+
+const message='Dont forget your assignmentis due!'
+
+
+
+const sender=new Notification();
+sender.send("Hello")
+email.send(message)
+sms.send(message)
+push.send(message)
+
+
+    </script>
+</body>
+</html>
