@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         Homework 4: Employee → Manager
+// Goal: Use super() and share properties.
+// Requirements:
+// Base Employee:
+// properties: name, salary
+// method: info()
+// Manager:
+// properties: name, salary, department
+// method: info() must add department info
+
+class Employee{
+    constructor(name,salary){
+        this.name=name;
+        this.salary=salary
+    }
+
+    info(){
+        return `Name: ${this.name}, salary:${this.salary}$`
+    }
+
+
+}
+
+
+class Manager extends Employee{
+        constructor(name,salary,department){
+            super(name,salary);
+            this.department=department
+        }
+
+        info(){
+            const personalInfo=super.info();
+            return `${personalInfo}, Department:${this.department}`
+        }
+
+    }
+
+    const employee1=new Employee('Tea Neziri',800)
+    console.log(employee1.info())
+
+    const manager=new Manager("Filan Fisteku",1000,'Sales')
+    console.log(manager.info())
+
+    </script>
+</body>
+</html>
