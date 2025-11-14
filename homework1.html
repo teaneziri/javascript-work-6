@@ -35,11 +35,30 @@
                 console.log(`Deposited amount is ${amount}€.New balance is ${this.#balance}€`)
             }
 
+            
+            withdraw(amount){
+                if(amount<=0){
+                    console.log("ERROR:Withdrawal amount must be positive.")
+                    return;
+                }
+
+                if(amount > this.#balance){
+                    console.log("ERROR: Insufficient funds.")
+                    return;
+                }
+
+                this.#balance-=amount;
+                console.log(`Withdrew: ${amount}€. New balance:${this.#balance}€`)
+            }
+
 
         }
 
-        const myAccount=new BankAccount(100)
+
+        //Testing
+        const myAccount=new BankAccount(0)
         myAccount.deposit(50)
+        myAccount.withdraw(32)
 
 
     </script>
