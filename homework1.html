@@ -38,12 +38,12 @@
 
             withdraw(amount){
                 if(amount<=0){
-                    console.log("ERROR:Withdrawal amount must be positive.")
+                    console.log("Invalid amount: Please enter a positive number.")
                     return;
                 }
 
                 if(amount > this.#balance){
-                    console.log("ERROR: Insufficient funds.")
+                    console.log("Transaction failed:Balance too low.")
                     return;
                 }
 
@@ -61,13 +61,13 @@
 
 
         //Testing
-        const myAccount=new BankAccount(50)
-        myAccount.deposit(50)
-        myAccount.withdraw(32)
-        console.log(`My account deposit is : `,myAccount.getBalance(),'€')
-        myAccount.deposit(30);
-        myAccount.withdraw(50)
-        console.log(`My account deposit is : `,myAccount.getBalance(),'€')
+        const myAccount=new BankAccount()
+         myAccount.deposit(50)
+         myAccount.withdraw(32)
+        /console.log(`My account balance is : `,myAccount.getBalance(),'€')
+         myAccount.deposit(30);
+         myAccount.withdraw(50)
+        // console.log(`My account deposit is : `,myAccount.getBalance(),'€')
 
 
     </script>
